@@ -62,6 +62,8 @@ class SnakeGame:
         self.clock = pygame.time.Clock()
         self.screen = pygame.display.set_mode((600, 600))
         self.font = pygame.font.Font(None, 36)
+        self.apple_image = pygame.image.load("apple.png")
+        self.apple_image = pygame.transform.scale(self.apple_image, (20, 20))
         
         # Start the game loop
         self.move_snake()
@@ -76,7 +78,7 @@ class SnakeGame:
             pygame.draw.rect(self.screen, (143, 0, 255), (segment[0], segment[1], 20, 20))
     
     def draw_food(self):
-        pygame.draw.rect(self.screen, (255, 0, 0), (self.food[0], self.food[1], 20, 20))
+        self.screen.blit(self.apple_image, self.food)
     
     def change_direction(self, event):
         if event.key == pygame.K_UP and self.direction != "Down":
