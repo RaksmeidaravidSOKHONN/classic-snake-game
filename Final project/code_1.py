@@ -17,7 +17,6 @@ LIGHTBLUE = (173, 216, 230)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Snake Game")
 
-# Main menu function
 def main_menu():
     while True:
         screen.fill(LIGHTBLUE)
@@ -52,7 +51,6 @@ def quit_game():
     pygame.quit()
     sys.exit()
 
-# Snake Game class
 class SnakeGame:
     def __init__(self):
         # Initialize game parameters
@@ -168,7 +166,6 @@ class SnakeGame:
         game_over_rect = game_over_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 50))
         self.screen.blit(game_over_text, game_over_rect)
 
-        # Load the image
         game_over_image = pygame.image.load("bg.png")
         image_rect = game_over_image.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 - 175))
         self.screen.blit(game_over_image, image_rect)
@@ -198,7 +195,6 @@ class SnakeGame:
         score_rect = score_text.get_rect(topright=(SCREEN_WIDTH - 20, 20))
         self.screen.blit(score_text, score_rect)
 
-# Main function
 def main():
     while True:
         if not main_menu():
